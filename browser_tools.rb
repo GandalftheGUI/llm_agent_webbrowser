@@ -82,6 +82,10 @@ class BrowserTools
       success("Clicked element #{selector}")
     rescue Selenium::WebDriver::Error::NoSuchElementError
       error("Element not found: #{selector}")
+    rescue Selenium::WebDriver::Error::ElementClickInterceptedError => e
+      error("ElementClickInterceptedError: Could not click '#{selector}'. Reason: #{e.message}")
+    rescue => e
+      error("Unexpected error clicking '#{selector}': #{e.class}: #{e.message}")
     end
   end
 
