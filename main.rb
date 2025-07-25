@@ -5,10 +5,9 @@ require_relative 'agent'
 Bundler.require
 
 agent = Agent.new
-tooling = Tooling.new
 take_user_input = true
 
-puts "Chat with Claude Sonnet 4 (type '/q' to quit):"
+puts "Control a web browser with Claude Sonnet 4 (type '/q' to quit):"
 
 loop do
   if take_user_input
@@ -20,7 +19,9 @@ loop do
     agent.add_to_conversation('user', user_input)
   end
 
-  message = agent.run_inference
+  message = with_spinner('🤖 Claude', 'thinking...') do
+    agent.run_inference
+  end
 
   tool_use_count = 0
   message.content.each do |part|
