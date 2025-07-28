@@ -1,6 +1,6 @@
 # llm_agent_webbrowser
 
-This project is a demonstration of an LLM-controlled browser agent. It allows a large language model (LLM) to interact with and control a Chrome web browser in real time, using natural language.
+This project is a demonstration of an LLM-controlled browser agent. It allows a large language model (LLM) connected via Model Context Protocal (MPC) to interact with and control a Chrome web browser in real time, using natural language.
 
 Here is an example of finding the current date and time from a website:
 ```
